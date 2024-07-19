@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clustering of Universities Based on SPMI</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 50px;
+            background: linear-gradient(to bottom, lightblue, white);
+        }
+        .header img {
+            height: 50px;
+        }
+        .cluster-box {
+            margin-top: 20px;
+        }
+        .cluster-container {
+            background-color: #b3e5fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .university-list {
+            height: 300px;
+            overflow-y: auto;
+        }
+        .card-header {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html">
+            <img src="logo-lldikti.png" alt="LLDIKTI Logo">
+        </a>
+        <div><strong>KLASTERISASI PERGURUAN TINGGI BERDASARKAN SPMI</strong></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 cluster-container">
+                <h3>Upload Model</h3>
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <input type="file" name="model" class="form-control" />
+                    <select id="algorithm" name="algorithm" class="form-control mt-2">
+                        <option value="DBSCAN">DBSCAN</option>
+                        <option value="KMeans">KMeans</option>
+                        <option value="MeanShift">MeanShift</option>
+                        <!-- Add more algorithms as needed -->
+                    </select>
+                    <button type="button" class="btn btn-primary mt-2" onclick="uploadAndLoadData()">Upload and Load Data</button>
+                </form>
+                <h3 class="mt-4">Clusters</h3>
+                <div id="clusters"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsde
